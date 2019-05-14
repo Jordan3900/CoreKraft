@@ -1,24 +1,24 @@
-﻿function StudentApp() {
-    AppBaseEx.apply(this, arguments);
+﻿function FirstExampleApp() {
+    AppBase.apply(this, arguments);
     this.setFinalAuthority(true);
 }
 
-StudentApp.Inherit(AppBaseEx, "StudentApp");
-StudentApp.Implement(IPlatformUtilityImpl, "student");
+FirstExampleApp.Inherit(AppBase, "FirstExampleApp");
+FirstExampleApp.Implement(IPlatformUtilityImpl, "FirstExample");
 
-StudentApp.prototype.provideAsServices = ["StudentApp"];
-StudentApp.prototype.get_caption = function () {
-    return "StudentApp";
-};
+FirstExampleApp.prototype.provideAsServices = ["FirstExampleApp"];
+FirstExampleApp.prototype.get_caption = function () {
+    return "FirstExampleApp";
+}
 
-StudentApp.registerShellCommand("StudentApp", "callook", function (args) {
-    Shell.launchApp("StudentApp");
+FirstExampleApp.registerShellCommand("FirstExampleApp", "callook", function (args) {
+    Shell.launchApp("FirstExampleApp");
 }, "Ultimate");
 
-StudentApp.prototype.appinitialize = function (callback, args) {
+FirstExampleApp.prototype.appinitialize = function (callback, args) {
     var singleWnd = new SimpleViewWindow(
         WindowStyleFlags.visible | WindowStyleFlags.parentnotify | WindowStyleFlags.adjustclient | WindowStyleFlags.sizable,
-        this,
+        //this,
         new TemplateConnector("bindkraftstyles/window-mainwindow"),
         new Rect(200, 200, 800, 600),
         {
@@ -28,11 +28,10 @@ StudentApp.prototype.appinitialize = function (callback, args) {
     this.placeWindow(singleWnd);
 
     this.mainWindow = singleWnd;
-    return undefined;
-};
-
-StudentApp.prototype.run = function () { };
-StudentApp.prototype.appshutdown = function () {
+    return true;
+}
+FirstExampleApp.prototype.run = function () { };
+FirstExampleApp.prototype.appshutdown = function () {
     jbTrace.log("The ModularExampleApp is shutting down");
     AppBase.prototype.appshutdown.apply(this, arguments);
-};
+}

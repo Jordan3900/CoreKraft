@@ -1,3 +1,3 @@
-﻿System.BootFS().writeMasterBoot("startshell createworkspace default initculture 'en' initframework launchone StudentApp");
+﻿System.BootFS().writeMasterBoot("startshell createworkspace default initculture 'en' initframework launchone FirstExampleApp");
 
-System.ShellShortcuts().regKeylaunchShortcut("S", "launchapp StudentApp");
+System.ShellShortcuts().regKeylaunchShortcut("S", "launchapp FirstExampleApp");
